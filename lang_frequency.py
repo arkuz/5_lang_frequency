@@ -6,7 +6,12 @@ import collections
 
 def create_arg_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("file", help='Path to file')
+    parser.add_argument("-file", help='Path to file')
+    parser.add_argument(
+        "-count",
+        default=10,
+        help='Count of most frequent words'
+    )
     return parser
 
 
@@ -40,6 +45,10 @@ if __name__ == '__main__':
     parser = create_arg_parser()
     args = parser.parse_args()
     filepath = os.path.abspath(args.file)
+    try:
+        most_frequent_count = int(args.count)
+    except ValueError:
+        sys.exit("Parameter 'count' must be integer.")
 
     data_object = load_data(filepath)
     if data_object is None:
@@ -47,5 +56,8 @@ if __name__ == '__main__':
     if not data_object:
         sys.exit('File is empty.')
 
-    most_frequent_words = get_most_frequent_words(data_object, 10)
+    most_frequent_words = get_most_frequent_words(
+        data_object,
+        most_frequent_count
+    )
     print_most_frequent_words(most_frequent_words)
