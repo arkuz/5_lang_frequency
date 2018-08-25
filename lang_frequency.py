@@ -9,6 +9,7 @@ def create_arg_parser():
     parser.add_argument("file", help='Path to file')
     return parser
 
+
 def load_data(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as file:
@@ -48,4 +49,3 @@ if __name__ == '__main__':
 
     most_frequent_words = get_most_frequent_words(data_object, 10)
     print_most_frequent_words(most_frequent_words)
-
