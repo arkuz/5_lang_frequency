@@ -36,8 +36,8 @@ def get_most_frequent_words(text, most_frequent_count):
 
 def print_most_frequent_words(words_list):
     print('List of most frequent words:')
-    for item in words_list:
-        print(item)
+    for word in words_list:
+        print(word)
 
 
 if __name__ == '__main__':
