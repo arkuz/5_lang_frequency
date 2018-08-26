@@ -1,6 +1,6 @@
 # Frequency Analysis of Words
 
-This script performs frequency analysis of words in the text file in any language.
+This script performs frequency analysis of words in the text file in any language. Words are not case sensitive, because the script translates all words to lowercase. The words `Hello` and `hello` are the same word.
 
 The script takes 2 parameters:
 + ` - file` - input file with the text
