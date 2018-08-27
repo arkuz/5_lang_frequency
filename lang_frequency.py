@@ -2,6 +2,7 @@ import sys
 import os
 import argparse
 import collections
+import re
 
 
 def create_arg_parser():
@@ -26,17 +27,16 @@ def load_data(filepath):
 
 def get_most_frequent_words(text, most_frequent_count):
     all_words_list = []
-    strings_list = text.split('\n')
+    lower_text = text.lower()
+    strings_list = lower_text.split('\r\n')
     for _string in strings_list:
-        lower_string = _string.lower()
-        words_list = lower_string.split(' ')
+        words_list = re.split('\W+', _string)
         all_words_list.extend(words_list)
     words_counter = collections.Counter(all_words_list)
     return words_counter.most_common(most_frequent_count)
 
 
 def print_most_frequent_words(words_list):
-    print(type(words_list))
     print('List of most frequent words:')
     for word in words_list:
         print("The word '{0}' is found in the text {1} times".format(
