@@ -10,6 +10,7 @@ def create_arg_parser():
     parser.add_argument(
         '-count',
         default=10,
+        type=int,
         help='Count of most frequent words'
     )
     return parser
@@ -49,10 +50,7 @@ if __name__ == '__main__':
     parser = create_arg_parser()
     args = parser.parse_args()
     filepath = os.path.abspath(args.file)
-    try:
-        most_frequent_count = int(args.count)
-    except ValueError:
-        sys.exit("Parameter 'count' must be integer.")
+    most_frequent_count = args.count
 
     text = load_data(filepath)
     if text is None:
