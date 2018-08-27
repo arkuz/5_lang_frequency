@@ -16,13 +16,13 @@ Sample text files:
 Example of script launch on Linux, Python 3.5:
 
 ```bash
-$ python3 lang_frequency.py -file=text_en.txt -count=5
+$ python lang_frequency.py -file=text.txt -count=5
 List of most frequent words:
-('is', 6)
-('and', 6)
-('a', 5)
-('the', 5)
-('in', 4)
+The word 'в' is found in the text 6 times
+The word 'и' is found in the text 5 times
+The word 'на' is found in the text 3 times
+The word 'скрипт' is found in the text 3 times
+The word 'не' is found in the text 2 times
 ```
 
 
