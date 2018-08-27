@@ -6,9 +6,9 @@ import collections
 
 def create_arg_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-file", help='Path to file')
+    parser.add_argument('-file', help='Path to file')
     parser.add_argument(
-        "-count",
+        '-count',
         default=10,
         help='Count of most frequent words'
     )
