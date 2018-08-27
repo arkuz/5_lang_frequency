@@ -30,8 +30,8 @@ def get_most_frequent_words(text, most_frequent_count):
         lower_string = _string.lower()
         words_list = lower_string.split(' ')
         all_words_list.extend(words_list)
-    col_counter = collections.Counter(all_words_list)
-    return col_counter.most_common(most_frequent_count)
+    words_counter = collections.Counter(all_words_list)
+    return words_counter.most_common(most_frequent_count)
 
 
 def print_most_frequent_words(words_list):
@@ -50,14 +50,14 @@ if __name__ == '__main__':
     except ValueError:
         sys.exit("Parameter 'count' must be integer.")
 
-    data_object = load_data(filepath)
-    if data_object is None:
+    text = load_data(filepath)
+    if text is None:
         sys.exit('File not found.')
-    if not data_object:
+    if not text:
         sys.exit('File is empty.')
 
     most_frequent_words = get_most_frequent_words(
-        data_object,
+        text,
         most_frequent_count
     )
     print_most_frequent_words(most_frequent_words)
