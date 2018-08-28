@@ -26,22 +26,19 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text, most_frequent_count):
-    all_words_list = []
     lower_text = text.lower()
-    strings_list = lower_text.split('\r\n')
-    for _string in strings_list:
-        words_list = re.split('\W+', _string)
-        all_words_list.extend(words_list)
-    words_counter = collections.Counter(all_words_list)
+    words_list = re.findall('\w+', lower_text)
+    words_counter = collections.Counter(words_list)
     return words_counter.most_common(most_frequent_count)
 
 
 def print_most_frequent_words(words_list):
+    words_dict = dict(words_list)
     print('List of most frequent words:')
-    for word in words_list:
-        print("The word '{0}' is found in the text {1} times".format(
-            word[0],
-            word[1],
+    for key in words_dict:
+        print('  {0} - {1}'.format(
+            key,
+            words_dict[key],
         ))
 
 
