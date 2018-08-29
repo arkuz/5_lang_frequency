@@ -32,13 +32,12 @@ def get_most_frequent_words(text, most_frequent_count):
     return words_counter.most_common(most_frequent_count)
 
 
-def print_most_frequent_words(words_list):
-    words_dict = dict(words_list)
+def print_most_frequent_words(most_frequent_words):
     print('List of most frequent words:')
-    for key in words_dict:
+    for word, count in most_frequent_words:
         print('  {0} - {1}'.format(
-            key,
-            words_dict[key],
+            word,
+            count,
         ))
 
 
